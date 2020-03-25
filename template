@@ -60,8 +60,14 @@ def start(liste, name):
             print("You didn't pick the item1")
             return start(liste, name)
         
-    #if pick == "3":
+    elif pick == "3":
+        print(liste)
+        start(liste, name)
         
+    elif pick == "4":
+        print("Go to scene 1")
+        time.sleep(1)
+        scene1(liste, name)
         
         
 
@@ -71,6 +77,15 @@ def scene1(liste, name):
 
 
 # Game Engine
+
+def mapx():
+    x ="""
+          [ ]---[ ]-[ ]   [_]
+           |     |   |     |
+           |----[_] [ ]---[ ]
+           |----[ ]-[ ]   [ ]
+       """
+    return x
 
 def selected(choices):
     
@@ -88,8 +103,8 @@ def setup():
     for i in text1:
         sys.stdout.write(i)
         sys.stdout.flush()
-        time.sleep(0.05)
-    orbit.name = input("> ")
+        time.sleep(0.05)    
+    orbit.name = input("\n> ")
     name = orbit.name
     return name
 
@@ -97,4 +112,5 @@ def setup():
 # Empty list
 liste = [] 
 # start function including liste and setup
+print(mapx())
 start(liste, setup())
