@@ -9,7 +9,7 @@ class Wormhole(object):
 class Spaceship(object):
     """The spaceship"""
     def __init__(self, computer):
-       
+       pass
 
 class Player(object):
     """A few attributes"""
