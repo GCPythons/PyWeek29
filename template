@@ -1,5 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 23 01:55:00 2020
+
+@author: atle
+"""
+
 import sys
 import time
+from image_start import *
 
 # CLASSES
 
@@ -23,13 +32,17 @@ orbit = Player()
 
 
 def start(liste, name):
-    print(liste)
-    print(orbit.name) #<- Test
-    print('\n4 choices', name)
-    print('\n1 # 1 ~ item 1')
-    print('\n2 # 2 = item 1')
-    print('\n3 # 3')
-    print('\n4 #4')
+    darknes()
+    text_medium("\nDarknes reign in this mysterious place.")
+    text_fast(f"\nWhat do your soul desire {name}?")
+    print() # space
+    text_fast("\nloading...")
+    time.sleep(2)
+    print()
+    print("\n1 Walk around without purpose and get to know the unknown")
+    print("\n2 Howl into the dark")
+    print("\n3 Do nothing")
+    print('\n4 Look at your items')
     
     choices = ['1', '2', '3', '4']
     pick = selected(choices)
@@ -62,12 +75,14 @@ def start(liste, name):
         
     elif pick == "3":
         print(liste)
-        start(liste, name)
+        print("You don't need any distractions")
+        print("We understand that")
+        print("You can stay here as long as you want")
         
     elif pick == "4":
-        print("Go to scene 1")
+        print("List of items")
         time.sleep(1)
-        scene1(liste, name)
+        start(liste, name)
         
         
 
@@ -98,8 +113,8 @@ def selected(choices):
         print('Wrong input')
         return selected(choices)
     
-def setup():
-    text1 = "Who are you?"
+def setup_name():
+    text1 = "Hello there stranger, who are you?"
     for i in text1:
         sys.stdout.write(i)
         sys.stdout.flush()
@@ -108,9 +123,26 @@ def setup():
     name = orbit.name
     return name
 
+def text_fast(str):
+    for i in str:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(0.1)  
+        
+def text_medium(str):
+    for i in str:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(0.16)
+        
+def text_slow(str):
+    for i in str:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(0.3)
+
 
 # Empty list
 liste = [] 
 # start function including liste and setup
-print(mapx())
-start(liste, setup())
+start(liste, setup_name())
