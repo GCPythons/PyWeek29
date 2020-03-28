@@ -11,7 +11,7 @@ import time
 
 # CLASSES
 
-
+# Player Class
 class Player(object):
     """A few attributes"""
     def __init__(self):
@@ -23,9 +23,11 @@ orbit = Player()
 # LEVELS
 
 
-def start(liste, name):
+# start
+def start(liste):
+    player_name = setup_name()
     text_medium("\nDarknes reign in this mysterious place")
-    text_fast(f"\nWhat do your soul desire {name}?")
+    text_fast(f"\nWhat do your soul desire to do here?")
     print() # space
     print("\n1 Walk around without purpose and get to know the unknown")
     print("\n2 Howl into the dark")
@@ -40,12 +42,12 @@ def start(liste, name):
             print("'Item 1' is in the list")
             print("loading...")
             time.sleep(2)
-            scene1(liste, name)
+            scene1(liste)
         else:
             print("'Item 1' is not in the list")
             print(liste)
             time.sleep(2)
-            start(liste, name)
+            start(liste)
             
     elif pick == "2":
         print("\nItem 1 in front of you")
@@ -56,10 +58,10 @@ def start(liste, name):
         pick = selected(choices)
         if pick == "1":
             liste.append("item1")
-            start(liste, name)
+            start(liste)
         else:
             print("You didn't pick the item1")
-            return start(liste, name)
+            return start(liste)
         
     elif pick == "3":
         print(liste)
@@ -70,17 +72,18 @@ def start(liste, name):
     elif pick == "4":
         print("Go to scene 1")
         time.sleep(1)
-        scene1(liste, name)
+        scene1(liste, player_name)
         
         
 
-def scene1(liste, name):    
+def scene1(liste, player_name):    
     print("Hey", name)
     print(liste)
 
 
-# Game Engine
+# GAME ENGINE
 
+# Choices
 def selected(choices):
     
     select = input('\n? ')
@@ -91,7 +94,8 @@ def selected(choices):
     else:
         print('Wrong input')
         return selected(choices)
-    
+ 
+# Asks for players name
 def setup_name():
     text1 = "Hello there stranger, who are you?"
     for i in text1:
@@ -102,6 +106,7 @@ def setup_name():
     name = orbit.name
     return name
 
+# Typewriter effects
 def text_fast(str):
     for i in str:
         sys.stdout.write(i)
@@ -118,8 +123,11 @@ def text_slow(str):
     for i in str:
         sys.stdout.write(i)
         sys.stdout.flush()
-        time.sleep(0.3)
+        time.sleep(0.3)        
 # Empty list
 liste = [] 
+
+# START GAME
+
 # start function including liste and setup
-start(liste, setup_name())
+start(liste)
