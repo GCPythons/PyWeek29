@@ -8,17 +8,9 @@ Created on Mon Mar 23 01:55:00 2020
 
 import sys
 import time
-from image_start import *
 
 # CLASSES
 
-class Wormhole(object):
-    pass
-
-class Spaceship(object):
-    """The spaceship"""
-    def __init__(self, computer):
-       pass
 
 class Player(object):
     """A few attributes"""
@@ -32,17 +24,13 @@ orbit = Player()
 
 
 def start(liste, name):
-    darknes()
-    text_medium("\nDarknes reign in this mysterious place.")
+    text_medium("\nDarknes reign in this mysterious place")
     text_fast(f"\nWhat do your soul desire {name}?")
     print() # space
-    text_fast("\nloading...")
-    time.sleep(2)
-    print()
     print("\n1 Walk around without purpose and get to know the unknown")
     print("\n2 Howl into the dark")
     print("\n3 Do nothing")
-    print('\n4 Look at your items')
+    print('\n4 #4')
     
     choices = ['1', '2', '3', '4']
     pick = selected(choices)
@@ -80,9 +68,9 @@ def start(liste, name):
         print("You can stay here as long as you want")
         
     elif pick == "4":
-        print("List of items")
+        print("Go to scene 1")
         time.sleep(1)
-        start(liste, name)
+        scene1(liste, name)
         
         
 
@@ -92,15 +80,6 @@ def scene1(liste, name):
 
 
 # Game Engine
-
-def mapx():
-    x ="""
-          [ ]---[ ]-[ ]   [_]
-           |     |   |     |
-           |----[_] [ ]---[ ]
-           |----[ ]-[ ]   [ ]
-       """
-    return x
 
 def selected(choices):
     
@@ -140,8 +119,6 @@ def text_slow(str):
         sys.stdout.write(i)
         sys.stdout.flush()
         time.sleep(0.3)
-
-
 # Empty list
 liste = [] 
 # start function including liste and setup
